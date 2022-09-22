@@ -88,8 +88,8 @@ modules:
       - type: file
         path: run.sh
       - type: file
-        url: https://raw.githubusercontent.com/SkyTemple/skytemple-randomizer/57b17e7d2f6f7358ec566c4a689be209240e8bf5/org.skytemple.Randomizer.desktop
-        sha256: 76ceb3433ddc18d3fe6108e8b61517dfebaaa35ab67fd5413530989d686b8a10
+        url: https://raw.githubusercontent.com/SkyTemple/skytemple-randomizer/d7bdfb7bf10afb141e3685dfb2e6229a7e95ef97/org.skytemple.Randomizer.desktop
+        sha256: 79389f3022e5c75da5270130973bff385c6e872b8609de8cfd520e72279899b4
       - type: file
-        url: https://raw.githubusercontent.com/SkyTemple/skytemple-randomizer/57b17e7d2f6f7358ec566c4a689be209240e8bf5/org.skytemple.Randomizer.appdata.xml
+        url: https://raw.githubusercontent.com/SkyTemple/skytemple-randomizer/d7bdfb7bf10afb141e3685dfb2e6229a7e95ef97/org.skytemple.Randomizer.appdata.xml
         sha256: e42e5de578cda5f71bae9af89c25a760dd031f2bb44ac692d18e6498ca3969c4
