@@ -1,6 +1,6 @@
 app-id: org.skytemple.Randomizer
 runtime: org.gnome.Platform
-runtime-version: '42'
+runtime-version: '43'
 sdk: org.gnome.Sdk
 command: run.sh
 finish-args:
@@ -9,7 +9,7 @@ finish-args:
   - "--socket=wayland"
   - "--share=ipc"
 sdk-extensions:
-  - org.freedesktop.Sdk.Extension.rust-nightly
+  - org.freedesktop.Sdk.Extension.rust-stable
 modules:
   - name: armips
     buildsystem: cmake-ninja
@@ -29,7 +29,7 @@ modules:
   - name: python3-skytemple-rust
     buildsystem: simple
     build-commands:
-      - . /usr/lib/sdk/rust-nightly/enable.sh && pip3 install --verbose --exists-action=i --no-index --find-links="file://${PWD}" --prefix=${FLATPAK_DEST} "./skytemple-rust"
+      - . /usr/lib/sdk/rust-stable/enable.sh && pip3 install --verbose --exists-action=i --no-index --find-links="file://${PWD}" --prefix=${FLATPAK_DEST} "./skytemple-rust"
     build-options:
       env:
         CARGO_HOME: /run/build/python3-skytemple-rust/cargo
@@ -50,11 +50,9 @@ modules:
       - type: file
         url: https://files.pythonhosted.org/packages/d9/5f/2daccd14278b6b780ae6799f85998377c06019354982391245f4b58a927d/setuptools-65.3.0-py3-none-any.whl
         sha256: 2e24e0bec025f035a2e72cdd1961119f557d78ad331bb00ff82efb2ab8da8e82
-      # At the moment there is a packaging issue with the source on PyPi: The macro subcrates are not contained in the source tarballs.
-      # We need to fix this upstream, but in the meantime we use the Git repo.
       - type: git
         url: https://github.com/SkyTemple/skytemple-rust.git
-        tag: 1.3.7
+        tag: 1.4.0
         dest: skytemple-rust
       - type: file
         url: https://files.pythonhosted.org/packages/5b/76/6ebf4728d287527514b29bc92c14ec59f666f43b0af650df6c100614c3dc/setuptools_rust-1.5.1-py3-none-any.whl
@@ -80,13 +78,13 @@ modules:
       - install -Dm644 org.skytemple.Randomizer.appdata.xml /app/share/metainfo/org.skytemple.Randomizer.appdata.xml
     sources:
       - type: archive
-        url: https://github.com/SkyTemple/skytemple-randomizer/archive/refs/tags/1.3.6.tar.gz
-        sha256: 6479855ea4a8dbb57efe711c3bf0af0b18bc9db7fb21ce5ac0a8e9f48506f733
+        url: https://github.com/SkyTemple/skytemple-randomizer/archive/refs/tags/1.4.0.tar.gz
+        sha256: c641bf4401c28650eb774f1e85e30037bc8671de0cc6b8c9f5a3996517bcf097
       - type: file
         path: run.sh
       - type: file
-        url: https://raw.githubusercontent.com/SkyTemple/skytemple-randomizer/d7bdfb7bf10afb141e3685dfb2e6229a7e95ef97/org.skytemple.Randomizer.desktop
+        url: https://raw.githubusercontent.com/SkyTemple/skytemple-randomizer/1.4.0/org.skytemple.Randomizer.desktop
         sha256: 79389f3022e5c75da5270130973bff385c6e872b8609de8cfd520e72279899b4
       - type: file
-        url: https://raw.githubusercontent.com/SkyTemple/skytemple-randomizer/d7bdfb7bf10afb141e3685dfb2e6229a7e95ef97/org.skytemple.Randomizer.appdata.xml
-        sha256: e42e5de578cda5f71bae9af89c25a760dd031f2bb44ac692d18e6498ca3969c4
+        url: https://raw.githubusercontent.com/SkyTemple/skytemple-randomizer/1.4.0/org.skytemple.Randomizer.appdata.xml
+        sha256: 82db388fb97f61520902956af3b430d9489485b664869dc4098508b6623310f4
