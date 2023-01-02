@@ -52,7 +52,7 @@ modules:
         sha256: 2e24e0bec025f035a2e72cdd1961119f557d78ad331bb00ff82efb2ab8da8e82
       - type: git
         url: https://github.com/SkyTemple/skytemple-rust.git
-        tag: 1.4.0
+        tag: 1.4.0.post0
         dest: skytemple-rust
       - type: file
         url: https://files.pythonhosted.org/packages/5b/76/6ebf4728d287527514b29bc92c14ec59f666f43b0af650df6c100614c3dc/setuptools_rust-1.5.1-py3-none-any.whl
@@ -78,7 +78,7 @@ modules:
       - install -Dm644 org.skytemple.Randomizer.appdata.xml /app/share/metainfo/org.skytemple.Randomizer.appdata.xml
     sources:
       - type: archive
-        url: https://github.com/SkyTemple/skytemple-randomizer/archive/refs/tags/1.4.3.tar.gz
-        sha256: 1f116552353ff55af78100462461685c115cd4da83a5d0b32332e9e5ec8e20dc
+        url: https://github.com/SkyTemple/skytemple-randomizer/archive/refs/tags/1.4.5.tar.gz
+        sha256: 2f0ba8285884011230e14af53a559f83d798ea71a64be4eea6af3eed556724ce
       - type: file
         path: run.sh
