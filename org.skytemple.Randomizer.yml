@@ -78,7 +78,7 @@ modules:
       - install -Dm644 org.skytemple.Randomizer.appdata.xml /app/share/metainfo/org.skytemple.Randomizer.appdata.xml
     sources:
       - type: archive
-        url: https://github.com/SkyTemple/skytemple-randomizer/archive/refs/tags/1.5.0.tar.gz
-        sha256: 6ae3c1ba6d84b638593c3da7624e37a1b41bef657bdfae7f5d4cb8eebc28038e
+        url: https://github.com/SkyTemple/skytemple-randomizer/archive/refs/tags/1.5.1.tar.gz
+        sha256: 1629e665c5f751df49f0a6c82b52443bb581adcc8e4c3e0339fde9bd7f0cc31e
       - type: file
         path: run.sh
