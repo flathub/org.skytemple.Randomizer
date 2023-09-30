@@ -9,7 +9,7 @@
             "name": "python3-jsonschema",
             "buildsystem": "simple",
             "build-commands": [
-                "cp /app/whl_tmp/rpds_py-0.10.3-cp310-cp310-manylinux_2_34_x86_64.whl . && pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"jsonschema==4.19.0\""
+                "cp /app/whl_tmp/rpds_py-0.10.3-*.whl . && pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"jsonschema==4.19.0\""
             ],
             "sources": [
                 {
