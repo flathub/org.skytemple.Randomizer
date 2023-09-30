@@ -1,0 +1,21 @@
+{
+    "name": "python3-rpds_py",
+    "buildsystem": "simple",
+    "build-commands": [
+        ". /usr/lib/sdk/rust-stable/enable.sh && python3 -m venv .venv && . ./.venv/bin/activate && pip3 install /app/whl_tmp/tomli-2.0.1-*.whl && pip3 install /app/whl_tmp/maturin-1.2.3-cp310-cp310-*.whl && cd rpds_py && python3 -m maturin build --offline -o /app/whl_tmp"
+    ],
+    "build-options": {
+        "env": {
+            "CARGO_HOME": "/run/build/python3-rpds_py/cargo"
+        }
+    },
+    "sources": [
+        "cargo-sources-rpds_py.json",
+        {
+            "type": "git",
+            "url": "https://github.com/crate-py/rpds.git",
+            "tag": "v0.10.3",
+            "dest": "rpds_py"
+        }
+    ]
+}
