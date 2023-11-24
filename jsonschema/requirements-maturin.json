@@ -1,0 +1,42 @@
+[
+    {
+        "type": "file",
+        "url": "https://files.pythonhosted.org/packages/f0/80/ca5bbd5fb9dc8833a97ec3b1ee94a2d712fd7835bf6d7d82495af3f8c549/maturin-1.2.3.tar.gz",
+        "sha256": "ef3f42af453d64f233b99543c3001bee645019a9c2022c7972210a9cacb5301f"
+    },
+    {
+        "type": "file",
+        "url": "https://files.pythonhosted.org/packages/2a/a3/49c29680d6118273b992b40ebe881e8e899b8e26a4e951f37f223da8f862/setuptools-63.4.3-py3-none-any.whl",
+        "sha256": "7f61f7e82647f77d4118eeaf43d64cbcd4d87e38af9611694d4866eb070cd10d"
+    },
+    {
+        "type": "file",
+        "url": "https://files.pythonhosted.org/packages/27/d6/003e593296a85fd6ed616ed962795b2f87709c3eee2bca4f6d0fe55c6d00/wheel-0.37.1-py2.py3-none-any.whl",
+        "sha256": "4bdcd7d840138086126cd09254dc6195fb4fc6f01c050a1d7236f2630db1d22a"
+    },
+    {
+        "type": "file",
+        "url": "https://files.pythonhosted.org/packages/c0/3f/d7af728f075fb08564c5949a9c95e44352e23dee646869fa104a3b2060a3/tomli-2.0.1.tar.gz",
+        "sha256": "de526c12914f0c550d15924c62d72abc48d6fe7364aa87328337a31007fe8a4f"
+    },
+    {
+        "type": "file",
+        "url": "https://files.pythonhosted.org/packages/c4/e6/c1ac50fe3eebb38a155155711e6e864e254ce4b6e17fe2429b4c4d5b9e80/flit_core-3.9.0.tar.gz",
+        "sha256": "72ad266176c4a3fcfab5f2930d76896059851240570ce9a98733b658cb786eba"
+    },
+    {
+        "type": "file",
+        "url": "https://files.pythonhosted.org/packages/5b/76/6ebf4728d287527514b29bc92c14ec59f666f43b0af650df6c100614c3dc/setuptools_rust-1.5.1-py3-none-any.whl",
+        "sha256": "306b236ff3aa5229180e58292610d0c2c51bb488191122d2fc559ae4caeb7d5e"
+    },
+    {
+        "type": "file",
+        "url": "https://files.pythonhosted.org/packages/7d/31/f2289ce78b9b473d582568c234e104d2a342fd658cc288a7553d83bb8595/semantic_version-2.10.0.tar.gz",
+        "sha256": "bdabb6d336998cbb378d4b9db3a4b56a1e3235701dc05ea2690d9a997ed5041c"
+    },
+    {
+        "type": "file",
+        "url": "https://files.pythonhosted.org/packages/1f/7a/8b94bb016069caa12fc9f587b28080ac33b4fbb8ca369b98bc0a4828543e/typing_extensions-4.8.0.tar.gz",
+        "sha256": "df8e4339e9cb77357558cbdbceca33c303714cf861d1eef15e1070055ae8b7ef"
+    }
+]
