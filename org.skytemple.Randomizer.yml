@@ -1,6 +1,6 @@
 app-id: org.skytemple.Randomizer
 runtime: org.gnome.Platform
-runtime-version: '44'
+runtime-version: '45'
 sdk: org.gnome.Sdk
 command: run.sh
 finish-args:
@@ -10,6 +10,8 @@ finish-args:
   - "--share=ipc"
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.rust-stable
+cleanup:
+  - /app/whl_tmp
 modules:
   - name: armips
     buildsystem: cmake-ninja
@@ -50,20 +52,33 @@ modules:
       - type: file
         url: https://files.pythonhosted.org/packages/d9/5f/2daccd14278b6b780ae6799f85998377c06019354982391245f4b58a927d/setuptools-65.3.0-py3-none-any.whl
         sha256: 2e24e0bec025f035a2e72cdd1961119f557d78ad331bb00ff82efb2ab8da8e82
+      - type: file
+        url: https://files.pythonhosted.org/packages/97/75/10a9ebee3fd790d20926a90a2547f0bf78f371b2f13aa822c759680ca7b9/tomli-2.0.1-py3-none-any.whl
+        sha256: 939de3e7a6161af0c887ef91b7d41a53e7c5a1ca976325f429cb46ea9bc30ecc
       - type: git
         url: https://github.com/SkyTemple/skytemple-rust.git
-        tag: "1.5.3"
+        tag: "1.6.1"
         dest: skytemple-rust
       - type: file
-        url: https://files.pythonhosted.org/packages/5b/76/6ebf4728d287527514b29bc92c14ec59f666f43b0af650df6c100614c3dc/setuptools_rust-1.5.1-py3-none-any.whl
-        sha256: 306b236ff3aa5229180e58292610d0c2c51bb488191122d2fc559ae4caeb7d5e
+        url: https://files.pythonhosted.org/packages/5b/be/8d88f5982d61fefa2cbc633b167d2553875169eee136b584089667c37e93/setuptools_rust-1.7.0-py3-none-any.whl
+        sha256: 071099885949132a2180d16abf907b60837e74b4085047ba7e9c0f5b365310c1
       - type: patch
         path: patches/skytemple_rust_setup_py.patch
   - requirements-skytemple-randomizer.json
+  - name: gtksourceview4
+    buildsystem: meson
+    sources:
+    - type: archive
+      url: https://download.gnome.org/sources/gtksourceview/4.8/gtksourceview-4.8.4.tar.xz
+      sha256: 7ec9d18fb283d1f84a3a3eff3b7a72b09a10c9c006597b3fbabbb5958420a87d
   - name: randomizer
     buildsystem: simple
     build-commands:
-      - pip3 install --prefix=/app --no-deps  .
+      # TODO: When localization support is merged:
+      #- installer/generate-mo.sh
+      # TODO: When switching to Blueprint Compiler <- note to self: probably worth switching to an actual build system (eg. Makefile)
+      #- ./build-blp-to-ui.sh
+      - pip3 install --verbose --exists-action=i --no-index --find-links="file://${PWD}/links" --prefix=${FLATPAK_DEST} --no-deps .
       # Icons
       - install -Dm644 skytemple_randomizer/data/icons/hicolor/16x16/apps/skytemple_randomizer.png /app/share/icons/hicolor/16x16/apps/org.skytemple.Randomizer.png
       - install -Dm644 skytemple_randomizer/data/icons/hicolor/32x32/apps/skytemple_randomizer.png /app/share/icons/hicolor/32x32/apps/org.skytemple.Randomizer.png
@@ -77,8 +92,16 @@ modules:
       - install -Dm644 org.skytemple.Randomizer.desktop /app/share/applications/org.skytemple.Randomizer.desktop
       - install -Dm644 org.skytemple.Randomizer.appdata.xml /app/share/metainfo/org.skytemple.Randomizer.appdata.xml
     sources:
+      - type: file
+        url: https://files.pythonhosted.org/packages/d9/5f/2daccd14278b6b780ae6799f85998377c06019354982391245f4b58a927d/setuptools-65.3.0-py3-none-any.whl
+        sha256: 2e24e0bec025f035a2e72cdd1961119f557d78ad331bb00ff82efb2ab8da8e82
+        dest: ./links
+      - type: file
+        url: https://files.pythonhosted.org/packages/27/d6/003e593296a85fd6ed616ed962795b2f87709c3eee2bca4f6d0fe55c6d00/wheel-0.37.1-py2.py3-none-any.whl
+        sha256: 4bdcd7d840138086126cd09254dc6195fb4fc6f01c050a1d7236f2630db1d22a
+        dest: ./links
       - type: archive
-        url: https://github.com/SkyTemple/skytemple-randomizer/archive/refs/tags/1.5.4.tar.gz
-        sha256: 6495958d839f3cc667c06fcdc0b4f09f2b55155c909d6f037bb1a1e25f07756e
+        url: https://github.com/SkyTemple/skytemple-randomizer/archive/refs/tags/1.6.0.tar.gz
+        sha256: 6917feb020c36b391c17837171712a1f6b8d1854440529dccc954571a04c0c95
       - type: file
         path: run.sh
