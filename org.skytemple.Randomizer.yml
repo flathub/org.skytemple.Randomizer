@@ -1,6 +1,6 @@
 app-id: org.skytemple.Randomizer
 runtime: org.gnome.Platform
-runtime-version: '45'
+runtime-version: '46'
 sdk: org.gnome.Sdk
 command: run.sh
 finish-args:
@@ -57,7 +57,7 @@ modules:
         sha256: 939de3e7a6161af0c887ef91b7d41a53e7c5a1ca976325f429cb46ea9bc30ecc
       - type: git
         url: https://github.com/SkyTemple/skytemple-rust.git
-        tag: "1.6.1"
+        tag: "1.6.5"
         dest: skytemple-rust
       - type: file
         url: https://files.pythonhosted.org/packages/5b/be/8d88f5982d61fefa2cbc633b167d2553875169eee136b584089667c37e93/setuptools_rust-1.7.0-py3-none-any.whl
@@ -65,20 +65,11 @@ modules:
       - type: patch
         path: patches/skytemple_rust_setup_py.patch
   - requirements-skytemple-randomizer.json
-  - name: gtksourceview4
-    buildsystem: meson
-    sources:
-    - type: archive
-      url: https://download.gnome.org/sources/gtksourceview/4.8/gtksourceview-4.8.4.tar.xz
-      sha256: 7ec9d18fb283d1f84a3a3eff3b7a72b09a10c9c006597b3fbabbb5958420a87d
   - name: randomizer
     buildsystem: simple
     build-commands:
-      # TODO: When localization support is merged:
-      #- installer/generate-mo.sh
-      # TODO: When switching to Blueprint Compiler <- note to self: probably worth switching to an actual build system (eg. Makefile)
-      #- ./build-blp-to-ui.sh
-      - pip3 install --verbose --exists-action=i --no-index --find-links="file://${PWD}/links" --prefix=${FLATPAK_DEST} --no-deps .
+      - make
+      - pip3 install --verbose --exists-action=i --no-index --find-links="file://${PWD}/links" --prefix=${FLATPAK_DEST} --no-deps '.[gtk]'
       # Icons
       - install -Dm644 skytemple_randomizer/data/icons/hicolor/16x16/apps/skytemple_randomizer.png /app/share/icons/hicolor/16x16/apps/org.skytemple.Randomizer.png
       - install -Dm644 skytemple_randomizer/data/icons/hicolor/32x32/apps/skytemple_randomizer.png /app/share/icons/hicolor/32x32/apps/org.skytemple.Randomizer.png
@@ -89,6 +80,7 @@ modules:
       # Runner
       - install -Dm755 run.sh /app/bin/run.sh
       # Desktop file, appstream
+      - sed -i "s/Exec=.*/Exec=\/app\/bin\/run.sh/g" org.skytemple.Randomizer.desktop
       - install -Dm644 org.skytemple.Randomizer.desktop /app/share/applications/org.skytemple.Randomizer.desktop
       - install -Dm644 org.skytemple.Randomizer.appdata.xml /app/share/metainfo/org.skytemple.Randomizer.appdata.xml
     sources:
@@ -100,11 +92,8 @@ modules:
         url: https://files.pythonhosted.org/packages/27/d6/003e593296a85fd6ed616ed962795b2f87709c3eee2bca4f6d0fe55c6d00/wheel-0.37.1-py2.py3-none-any.whl
         sha256: 4bdcd7d840138086126cd09254dc6195fb4fc6f01c050a1d7236f2630db1d22a
         dest: ./links
-      - type: archive
-        url: https://github.com/SkyTemple/skytemple-randomizer/archive/refs/tags/1.6.0.tar.gz
-        sha256: 6917feb020c36b391c17837171712a1f6b8d1854440529dccc954571a04c0c95
-      - type: file
-        url: https://raw.githubusercontent.com/SkyTemple/skytemple-randomizer/master/org.skytemple.Randomizer.appdata.xml
-        sha256: 895516de45a221df796e712464221b35534c2ddbde77dc5e97ab0519367a5188
+      - type: git
+        url: https://github.com/SkyTemple/skytemple-randomizer.git
+        tag: "2.0.0b1"
       - type: file
         path: run.sh
