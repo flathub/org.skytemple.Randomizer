@@ -17,8 +17,8 @@
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/f7/e1/bfcafd54dee859b2e6e690c5f8a8a30343d590a8822bb0669afba4c2c9e6/aiohttp-3.10.1.tar.gz",
-                    "sha256": "8b0d058e4e425d3b45e8ec70d49b402f4d6b21041e674798b1f91ba027c73f28"
+                    "url": "https://files.pythonhosted.org/packages/15/9c/ed427fcc46423c965a8e33673d7111b6e3b3aa7d61ca52163a720ff200cb/aiohttp-3.10.3.tar.gz",
+                    "sha256": "21650e7032cc2d31fc23d353d7123e771354f2a3d5b05a5647fc30fea214e696"
                 },
                 {
                     "type": "file",
@@ -195,8 +195,8 @@
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/f7/e1/bfcafd54dee859b2e6e690c5f8a8a30343d590a8822bb0669afba4c2c9e6/aiohttp-3.10.1.tar.gz",
-                    "sha256": "8b0d058e4e425d3b45e8ec70d49b402f4d6b21041e674798b1f91ba027c73f28"
+                    "url": "https://files.pythonhosted.org/packages/15/9c/ed427fcc46423c965a8e33673d7111b6e3b3aa7d61ca52163a720ff200cb/aiohttp-3.10.3.tar.gz",
+                    "sha256": "21650e7032cc2d31fc23d353d7123e771354f2a3d5b05a5647fc30fea214e696"
                 },
                 {
                     "type": "file",
@@ -351,7 +351,7 @@
             "name": "python3-skytemple-files",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"skytemple-files[spritecollab]==1.8.2\""
+                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"skytemple-files[spritecollab]==1.8.3\""
             ],
             "sources": [
                 {
@@ -371,8 +371,8 @@
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/f7/e1/bfcafd54dee859b2e6e690c5f8a8a30343d590a8822bb0669afba4c2c9e6/aiohttp-3.10.1.tar.gz",
-                    "sha256": "8b0d058e4e425d3b45e8ec70d49b402f4d6b21041e674798b1f91ba027c73f28"
+                    "url": "https://files.pythonhosted.org/packages/15/9c/ed427fcc46423c965a8e33673d7111b6e3b3aa7d61ca52163a720ff200cb/aiohttp-3.10.3.tar.gz",
+                    "sha256": "21650e7032cc2d31fc23d353d7123e771354f2a3d5b05a5647fc30fea214e696"
                 },
                 {
                     "type": "file",
@@ -471,8 +471,8 @@
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/82/19/7e0c5a5263d20628016af98a8eac64150bb778436e67867dd276660b3e03/skytemple_files-1.8.2-py3-none-any.whl",
-                    "sha256": "3ff5722cc1a4eff4d8e1b27a6acc40bcf6162cc5d2f972717352a20bcb7e1c58"
+                    "url": "https://files.pythonhosted.org/packages/39/3c/bf72152c68976500b46ad4874273f55b349d0167e3cdd613f0ea0aeaa88b/skytemple_files-1.8.3-py3-none-any.whl",
+                    "sha256": "803df382d4fb1e6ca1771769810e49005311c303af40128d51d2101a4971650f"
                 },
                 {
                     "type": "file",

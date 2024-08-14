@@ -189,7 +189,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/SkyTemple/skytemple-randomizer.git
-        tag: 2.0.1
+        tag: 2.0.2
       - type: file
         path: assets/run.sh
       - dest: links
