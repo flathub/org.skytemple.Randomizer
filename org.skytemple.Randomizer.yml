@@ -137,7 +137,7 @@ modules:
       - install -Dm644 org.skytemple.Randomizer.desktop /app/share/applications/org.skytemple.Randomizer.desktop
       - install -Dm644 org.skytemple.Randomizer.appdata.xml /app/share/metainfo/org.skytemple.Randomizer.appdata.xml
     sources:
-      - {"type": "git", "url": "https://github.com/SkyTemple/skytemple-randomizer.git", "tag": "2.0.1"}
+      - {"type": "git", "url": "https://github.com/SkyTemple/skytemple-randomizer.git", "tag": "2.0.2"}
       - type: file
         path: assets/run.sh
       - dest: links
