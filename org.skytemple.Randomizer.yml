@@ -121,8 +121,8 @@ modules:
   - name: randomizer
     buildsystem: simple
     build-commands:
-      - make
-      - pip3 install --verbose --exists-action=i --no-index --find-links="file://${PWD}/links" --prefix=${FLATPAK_DEST} --no-deps '.[gtk]'
+      # No build isolation so we don't have to rebuild PyGObject. It's only needed for building the UI files from Blueprint files.
+      - pip3 install --verbose --no-build-isolation --exists-action=i --no-index --find-links="file://${PWD}/links" --prefix=${FLATPAK_DEST} --no-deps '.[gtk]'
       # Icons
       - install -Dm644 skytemple_randomizer/data/icons/hicolor/16x16/apps/skytemple_randomizer.png /app/share/icons/hicolor/16x16/apps/org.skytemple.Randomizer.png
       - install -Dm644 skytemple_randomizer/data/icons/hicolor/32x32/apps/skytemple_randomizer.png /app/share/icons/hicolor/32x32/apps/org.skytemple.Randomizer.png
@@ -137,18 +137,6 @@ modules:
       - install -Dm644 org.skytemple.Randomizer.desktop /app/share/applications/org.skytemple.Randomizer.desktop
       - install -Dm644 org.skytemple.Randomizer.appdata.xml /app/share/metainfo/org.skytemple.Randomizer.appdata.xml
     sources:
-      - {"type": "git", "url": "https://github.com/SkyTemple/skytemple-randomizer.git", "tag": "2.0.2"}
+      - {"type": "git", "url": "https://github.com/SkyTemple/skytemple-randomizer.git", "tag": "2.1.0"}
       - type: file
         path: assets/run.sh
-      - dest: links
-        sha256: 032d42ee9fb536e33087fb66cac5f840eb9391ed05637b3f2a76a7c8fb477936
-        type: file
-        url: https://files.pythonhosted.org/packages/32/c0/5b8013b5a812701c72e3b1e2b378edaa6514d06bee6704a5ab0d7fa52931/setuptools-71.1.0.tar.gz
-      - dest: links
-        sha256: 465ef92c69fa5c5da2d1cf8ac40559a8c940886afcef87dcf14b9470862f1d85
-        type: file
-        url: https://files.pythonhosted.org/packages/b8/d6/ac9cd92ea2ad502ff7c1ab683806a9deb34711a1e2bd8a59814e8fc27e69/wheel-0.43.0.tar.gz
-      - dest: links
-        sha256: 7aada352fb0c7f5538c4fafeddf314d3a6a92ee8e2b1de70482329e42de70301
-        type: file
-        url: https://files.pythonhosted.org/packages/38/45/618e84e49a6c51e5dd15565ec2fcd82ab273434f236b8f108f065ded517a/flit_core-3.9.0-py3-none-any.whl
